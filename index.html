@@ -1,0 +1,3686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Renovation | Modern Recipe Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512' fill='%23ff6b6b'><path d='M416 0C304 0 224 80 224 192c0 112 80 192 192 192h18.4c21.3 0 32 25.9 17 41l-80 80c-9.4 9.4-24.6 9.4-33.9 0l-80-80c-15-15-4.4-41 17-41h18.4c79.5 0 144-64.5 144-144V16c0-8.8-7.2-16-16-16zm-288 0c-8.8 0-16 7.2-16 16v416c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V16c0-8.8-7.2-16-16-16H128z'/></svg>">
+    <style>
+
+        /* Global Styles */
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #292f36;
+            --light: #f7fff7;
+            --accent: #ffbe0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            margin-top: 80px;
+        }
+       html {
+    scroll-padding-top: 80px; /* Prevents navbar from covering content when scrolling */
+}
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+            font-weight: 300;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        /* Navigation */
+        /* Navigation */
+/* Navigation */
+nav {
+    position: fixed; /* Keeps navbar fixed at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures navbar stays above other content */
+    background-color: var(--dark);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid var(--primary);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.nav-logo {
+     padding-left: 2rem; /* This adds two spaces worth of padding */
+    
+    /* Keep all your existing properties below */
+    color: var(--light);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Remove any existing padding/margin if they conflict */
+    padding-right: 0;
+    margin-left: 0;
+}
+
+.nav-logo i {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.nav-logo:hover {
+    transform: translateY(-2px);
+}
+
+.nav-logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+.nav-links li {
+    margin-left: 0;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.nav-links a i {
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: width 0.3s;
+    border-radius: 3px;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a:hover i,
+.nav-links a.active i {
+    transform: scale(1.2);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.hamburger:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+/* Mobile menu styles (keep your existing mobile styles) */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 0;
+        transition: all 0.5s;
+        z-index: 99;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links a {
+        font-size: 1.3rem;
+        gap: 0.8rem;
+    }
+    
+    .nav-links a i {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: all 0.5s;
+        z-index: 99;
+        border-top: 3px solid var(--primary);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.3rem;
+        padding: 1rem 2rem;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+}
+        
+        /* Hero Search */
+        /* Enhanced Search Bar Styles */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 5px 25px rgba(255,107,107,0.3);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.search-box button {
+    position: relative;
+    right: 5px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+}
+
+.search-box button:hover {
+    background: #ff5252;
+    transform: rotate(10deg) scale(1.1);
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0 0 15px 15px;
+    margin-top: -5px; /* Overlap slightly with search box */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.search-suggestions.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-suggestions div {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-family: 'Calibri', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.search-suggestions div:last-child {
+    border-bottom: none;
+}
+
+.search-suggestions div:hover {
+    background: rgba(255, 107, 107, 0.1);
+    color: var(--primary);
+    padding-left: 25px;
+}
+
+.search-suggestions div.highlight {
+      background: rgba(255, 107, 107, 0.1);
+    color: var(--primary);
+    padding-left: 25px;
+}
+.search-suggestions i {
+            color: var(--primary);
+    font-size: 0.9rem;
+    width: 20px;
+    text-align: center;
+        }
+.search-box.suggestions-active {
+            border-radius: 15px 15px 0 0;
+    border-bottom: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 101;
+        }
+.search-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-suggestions::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 15px 0;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 107, 0.3);
+    border-radius: 4px;
+}
+
+.search-suggestions::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 107, 107, 0.5);
+}
+#search-input {
+            font-family: 'Calibri', sans-serif;
+        }
+
+/* Search bar animations */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,107,107,0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255,107,107,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,107,107,0); }
+}
+
+.search-box.pulse {
+    animation: pulse 1s;
+}
+        /* Featured Section */
+        .featured {
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: left;
+            font-size: 1.4rem;
+            color: #666;
+            max-width: 100%;
+            margin-left: 0;
+            margin-right: auto;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            padding: 0;
+        }
+         
+        .text-subtitle{
+         font-size: 1.4rem;
+         color: #666;
+         max-width: 800px;
+         margin: 0 auto 3rem;
+         line-height: 1.6;
+         text-align: center; /* Ensure it's centered */
+         padding: 0;
+        }
+
+        .filter-buttons {
+            margin: 2rem 0 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            padding: 0.7rem 2rem;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+        
+        .recipes-grid {
+           display: grid;
+           grid-template-columns: repeat(3, 1fr);
+           gap: 2.5rem;
+           margin-top: 3rem;
+        }
+         @media (max-width: 992px) {
+    .recipes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.load-more {
+    display: block;
+    margin: 3rem auto 0;
+    padding: 1rem 3rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.load-more:hover {
+    background: #ff5252;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+}
+
+        
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .recipe-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .recipe-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s;
+        }
+        
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.1);
+        }
+        
+        .recipe-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .recipe-content {
+            padding: 1.8rem;
+        }
+        
+        .recipe-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-weight: 600;
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .recipe-desc {
+            margin-bottom: 1.8rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(255,107,107,0.3);
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-text {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* Team Section */
+        .team {
+            text-align: center;
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .member-img {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    border: 5px solid transparent;
+    transition: 
+        transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+        border-color 0.3s ease;
+        }
+
+.member-img:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 107, 107, 0.9);
+}
+
+.member-img:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+       .member-img img {
+     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.member-img:hover img {
+    transform: scale(1.08); /* Slightly reduced zoom */
+}
+
+        
+        .member-name {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .member-bio {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+ 
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: #f1f1f1;
+            border-radius: 50%;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+.fa-x-twitter {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 700; /* X needs higher weight */
+}
+        
+        /* Categories Section */
+        .categories {
+            background: #f9f9f9;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .newsletter .section-title {
+            color: white;
+        }
+        
+        .newsletter .section-subtitle {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+        }
+        
+        .newsletter-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            padding: 0 2.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button:hover {
+            background: #ff5252;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .contact-info p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        
+        .contact-text p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .contact-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #f1f1f1;
+            border-radius: 50%;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .contact-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Recipe Modal */
+        .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .recipe-modal {
+            background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) rgba(0,0,0,0.1);
+        }
+        
+        .modal-overlay.active .recipe-modal {
+            transform: translateY(0);
+        }
+        .recipe-modal::-webkit-scrollbar {
+    width: 12px;
+}
+
+.recipe-modal::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 0 15px 15px 0;
+}
+
+.recipe-modal::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.close-modal:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: #ff5252;
+}
+        
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff5252;
+}
+
+        .modal-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .modal-img {
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .modal-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+        
+        .modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        .modal-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .modal-desc {
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-tag {
+            background: #f1f1f1;
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        
+        .ingredients, .instructions {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .ingredients-list, .instructions-list {
+            list-style-type: none;
+        }
+        
+        .ingredients-list li {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ingredients-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        
+        .instructions-list {
+            counter-reset: step;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .instructions-list li::before {
+            content: counter(step);
+            counter-increment: step;
+            background: var(--primary);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification-icon {
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-about p {
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links ul, .footer-categories ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li, .footer-categories ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links ul li a, .footer-categories ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links ul li a:hover, .footer-categories ul li a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-links ul li a::before, .footer-categories ul li a::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.6rem;
+            color: var(--primary);
+        }
+        
+        .footer-contact ul {
+            list-style: none;
+        }
+        
+        .footer-contact ul li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+        
+        .footer-contact ul li i {
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+        
+        .footer-contact ul li span {
+            color: #ccc;
+            line-height: 1.6;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: #ff5252;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-img {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .modal-header {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-img {
+                height: 300px;
+            }
+        }
+.hero-branding {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.hero-logo {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.hero-logo i {
+   color: var(--primary);
+    font-size: 3rem;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo span {
+    color: var(--primary);
+}
+.tagline, 
+.search-container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Animation on hover */
+.hero-logo:hover i {
+    transform: rotate(15deg) scale(1.1);
+}
+
+
+}
+@media (max-width: 768px) {
+    .hero-logo {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    
+    .hero-logo i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.4rem;
+    }
+}
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: all 0.5s;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                color: white;
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 5px;
+            }
+            
+            .newsletter-form input {
+                border-radius: 5px 5px 0 0;
+                margin-bottom: 1px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 0 0 5px 5px;
+                padding: 1rem;
+            }
+            
+            .modal-body {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</script>
+</head>
+<body>
+
+ <!-- Navigation -->
+    <nav>
+    <div class="container nav-container">
+        <a href="#" class="nav-logo">
+            <i class="fas fa-utensils"></i> Food<span>Renovation</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#featured"><i class="fas fa-utensil-spoon"></i> Recipes</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#team"><i class="fas fa-users"></i> Team</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+    <!-- Header with Hero Image -->
+    <header id="home">
+    <div class="container">
+        <div class="hero-branding">
+            <a href="#" class="hero-logo">
+                <i class="fas fa-utensils"></i> Food<span>Renovation</span>
+            </a>
+        </div>
+        <p class="tagline">Transforming Traditional Recipes into Modern Culinary Masterpieces through Innovation and Creativity</p>
+       <div class="search-container">
+    <div class="search-box">
+        <input type="text" id="search-input" placeholder="Search for recipes..." autocomplete="off">
+        <button id="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+        <div class="search-suggestions" id="search-suggestions"></div>
+    </div>
+</div>
+        <a href="#featured" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+    </div>
+</header>
+    
+   
+    <!-- Featured Recipes Section -->
+    <section class="featured" id="featured">
+        <div class="container">
+            <h2 class="section-title">Featured Recipes</h2>
+            <p class="section-subtitle text-subtitle">Discover our latest and most innovative recipe transformations that will change the way you think about food</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Recipes</button>
+                <button class="filter-btn" data-category="molecular">Molecular</button>
+                <button class="filter-btn" data-category="vegetarian">Vegetarian</button>
+                <button class="filter-btn" data-category="dessert">Dessert</button>
+                <button class="filter-btn" data-category="fusion">Fusion</button>
+                <button class="filter-btn" data-category="vegan">Vegan</button>
+            </div>
+            
+            <div class="recipes-grid" id="recipes-container">
+    <!-- Recipes will be dynamically inserted here -->
+</div>
+<button class="btn load-more" id="load-more">Load More Recipes</button>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80" alt="About Food Renovation">
+                </div>
+                <div class="about-text">
+                    <h2>Our Culinary Philosophy</h2>
+                    <p>At Food Renovation, we believe that cooking is both an art and a science. Our mission is to bridge tradition and innovation, transforming classic recipes into modern masterpieces that excite the senses and challenge perceptions.</p>
+                    <p>Founded in 2015 by award-winning Mirza Farhan, our team of culinary experts, food scientists, and creative designers work together to push the boundaries of what's possible in the kitchen while respecting the essence of each ingredient.</p>
+                    <p>We've been featured in numerous culinary publications and have won the International Gastronomy Innovation Award three years in a row for our groundbreaking approach to food transformation.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">250+</div>
+                            <div class="stat-text">Recipes Created</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-text">Awards Won</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1M+</div>
+                            <div class="stat-text">Happy Cooks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Team Section -->
+<section class="team" id="team">
+    <div class="container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <p class="section-subtitle text-subtitle">The brilliant minds behind our culinary innovations</p>
+        
+        <div class="team-members">
+            <!-- Member 1 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marco Vitali">
+                </div>
+                <h3 class="member-name">Zeeshan Ali</h3>
+                <p class="member-role">Founder & Executive Chef</p>
+                <p class="member-bio">With over 20 years of experience in molecular gastronomy, Zeeshan brings innovation and precision to every recipe.</p>
+                <div class="social-links">
+    <a href="https://www.facebook.com/share/16VD87buB7/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com/Dominant_3258?t=MlBZaGPBQJ64H5NvtYDOMA&s=09" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://www.instagram.com/zeeshan_ali_3258?igsh=MTV2enZnOXBkbm5scQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 2 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie Chen">
+                </div>
+                <h3 class="member-name">Mirza Farhan</h3>
+                <p class="member-role">Head of Recipe Development</p>
+                <p class="member-bio">A fusion cuisine expert, Farhan combines flavors from around the world to create unforgettable dining experiences.</p>
+               <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 3 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Müller">
+                </div>
+                <h3 class="member-name">Hamza Rasheed</h3>
+                <p class="member-role">Food Scientist</p>
+                <p class="member-bio">Hamza's background in chemistry helps us understand the molecular interactions that make our recipes possible.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 4 -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya Patel">
+                </div>
+                <h3 class="member-name">Usman Maqbool</h3>
+                <p class="member-role">Pastry Chef</p>
+                <p class="member-bio">Usman's desserts are works of art that engage all the senses while maintaining perfect balance and flavor.</p>
+               <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 5 (New) -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="James Wilson">
+                </div>
+                <h3 class="member-name">Nadeem Iqbal</h3>
+                <p class="member-role">Mixology Expert</p>
+                <p class="member-bio">Nadeem creates innovative cocktail pairings that perfectly complement our molecular gastronomy dishes.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 6 (New) -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Elena Rodriguez">
+                </div>
+                <h3 class="member-name">Mahmood Butt</h3>
+                <p class="member-role">Sustainability Director</p>
+                <p class="member-bio">Mahmood ensures all our recipes and techniques are environmentally sustainable and ethically sourced.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+            
+            <!-- Member 7 (New) -->
+            <div class="team-member">
+                <div class="member-img">
+                    <img src="https://randomuser.me/api/portraits/men/82.jpg" alt="Thomas Kim">
+                </div>
+                <h3 class="member-name">Hayyan Gill</h3>
+                <p class="member-role">Creative Director</p>
+                <p class="member-bio">Hayyan designs the stunning visual presentations that make our dishes unforgettable experiences.</p>
+                <div class="social-links">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+   <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Our Recipe Categories</h2>
+            <p class="section-subtitle">Explore our innovative approaches to different culinary styles</p>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="molecular">
+                    <div class="category-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="category-title">Molecular Gastronomy</h3>
+                    <p class="category-desc">Scientific techniques that transform textures and presentations while preserving flavors.</p>
+                </div>
+                
+                <div class="category-card" data-category="vegetarian">
+                    <div class="category-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="category-title">Plant-Based Innovations</h3>
+                    <p class="category-desc">Reimagining vegetarian cuisine with surprising textures and flavor combinations.</p>
+                </div>
+                
+                <div class="category-card" data-category="fusion">
+                    <div class="category-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="category-title">Global Fusion</h3>
+                    <p class="category-desc">Bridging culinary traditions from different cultures to create something entirely new.</p>
+                </div>
+                
+                <div class="category-card" data-category="dessert">
+                    <div class="category-icon">
+                        <i class="fas fa-ice-cream"></i>
+                    </div>
+                    <h3 class="category-title">Dessert Transformations</h3>
+                    <p class="category-desc">Deconstructed classics and reinvented sweets that challenge expectations.</p>
+                </div>
+                
+                <div class="category-card" data-category="vegan">
+                    <div class="category-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="category-title">Vegan Reinventions</h3>
+                    <p class="category-desc">Plant-based dishes so innovative you won't miss the animal products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="section-title">Join Our Culinary Journey</h2>
+            <p class="section-subtitle">Subscribe to receive weekly recipe renovations, exclusive content, and culinary inspiration</p>
+            
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle contact-subtitle">We'd love to hear from you! Reach out with questions, collaborations, or just to say hello.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Have questions about our recipes or want to collaborate on a project? Fill out the form or contact us directly.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>Khwaja Fareed University Of Engineering And Information Technology , RYK</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p>hello@foodrenovation.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Recipe Modal -->
+    <div class="modal-overlay" id="recipe-modal">
+        <div class="recipe-modal">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div class="modal-content" id="modal-content">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle notification-icon"></i>
+        Thank you for subscribing to our newsletter!
+    </div>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-about">
+                    <h3>About Us</h3>
+                    <p>Food Renovation is dedicated to transforming traditional recipes into modern culinary experiences through innovation and creativity. Our mission is to inspire home cooks and professional chefs alike.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com" aria-label="X">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+</a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+        
+                        
+                    </div>
+                </div>
+                
+                <div class="footer-column footer-links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="#home" class="smooth-scroll">Home</a></li>
+        <li><a href="#featured" class="smooth-scroll">Recipes</a></li>
+        <li><a href="#about" class="smooth-scroll">About</a></li>
+        <li><a href="#team" class="smooth-scroll">Team</a></li>
+        <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+    </ul>
+</div>
+                
+               <div class="footer-column footer-categories">
+    <h3>Recipe Categories</h3>
+    <ul>
+        <li><a href="#featured" class="category-filter" data-category="molecular">Molecular Gastronomy</a></li>
+        <li><a href="#featured" class="category-filter" data-category="vegetarian">Vegetarian</a></li>
+        <li><a href="#featured" class="category-filter" data-category="vegan">Vegan</a></li>
+        <li><a href="#featured" class="category-filter" data-category="dessert">Desserts</a></li>
+        <li><a href="#featured" class="category-filter" data-category="fusion">Global Fusion</a></li>
+    </ul>
+</div>
+                
+                <div class="footer-column footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Khwaja Fareed University of Engineering and Information Technology , RYK</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@foodrenovation.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Food Renovation. All rights reserved. | Designed By Group No.4 (SWEN-2B)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Recipe Data - Simulating a database
+        const recipes = [
+            {
+                id: 1,
+                title: "Deconstructed Avocado Toast",
+                category: ["molecular", "vegetarian"],
+                time: "15 mins",
+                type: "Breakfast",
+                image: "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80",
+                description: "A modern twist on classic avocado toast with molecular gastronomy elements that transform the familiar into something extraordinary. The avocado is transformed into delicate spheres that burst with flavor, while the toast is reimagined as a crisp tuile for texture contrast.",
+                ingredients: [
+                    "2 slices artisan sourdough bread",
+                    "1 ripe avocado",
+                    "1 tsp citric acid",
+                    "2 tbsp olive oil",
+                    "1 tsp sodium alginate",
+                    "1 tsp calcium chloride",
+                    "1 cup water",
+                    "Microgreens for garnish",
+                    "Edible flowers for decoration",
+                    "Sea salt and pepper to taste"
+                ],
+                instructions: [
+                    "Prepare the avocado spheres by blending avocado with citric acid and sodium alginate until completely smooth",
+                    "Create a calcium chloride bath by dissolving calcium chloride in water",
+                    "Using a spoon, form small spheres of the avocado mixture and gently drop into the calcium bath",
+                    "Let spheres set for 2 minutes, then remove and rinse in clean water",
+                    "For the bread tuile, blend sourdough with olive oil and spread thinly on a silicone mat",
+                    "Bake at 180°C (350°F) for 8-10 minutes until crisp",
+                    "Break tuile into irregular pieces for plating",
+                    "Arrange the avocado spheres on the tuile pieces",
+                    "Garnish with microgreens and edible flowers",
+                    "Finish with a drizzle of olive oil and flaky sea salt"
+                ],
+                badge: "Chef's Pick"
+            },
+            {
+                id: 2,
+                title: "Rainbow Vegetable Terrine",
+                category: ["vegetarian", "vegan"],
+                time: "45 mins",
+                type: "Appetizer",
+                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "Layered vegetable masterpiece with edible flowers and herb-infused gel that creates a stunning visual and taste experience. Each colorful layer represents a different vegetable, suspended in a clear herbal gel that adds both flavor and visual appeal.",
+                ingredients: [
+                    "1 red bell pepper",
+                    "1 yellow bell pepper",
+                    "1 zucchini",
+                    "1 eggplant",
+                    "1 cup cherry tomatoes",
+                    "2 tbsp agar agar",
+                    "1 cup vegetable broth",
+                    "1/4 cup fresh basil leaves",
+                    "1/4 cup fresh parsley",
+                    "2 tbsp olive oil",
+                    "Salt and pepper to taste",
+                    "Edible flowers for garnish"
+                ],
+                instructions: [
+                    "Using a mandoline, slice all vegetables into 2mm thick slices",
+                    "Toss each vegetable separately with olive oil, salt, and pepper",
+                    "Roast vegetables on separate trays at 200°C (400°F) for 10-12 minutes until tender but not browned",
+                    "Prepare herb gel by blending herbs with vegetable broth and agar agar",
+                    "Strain mixture through a fine mesh sieve into a clean saucepan",
+                    "Heat gently until agar agar is completely dissolved (do not boil)",
+                    "Line a loaf pan with plastic wrap, leaving overhang on all sides",
+                    "Begin layering vegetables in the pan, brushing each layer with herb gel",
+                    "Alternate colors and textures for visual appeal",
+                    "Pour remaining gel over the top to completely cover",
+                    "Chill for at least 4 hours or overnight until fully set",
+                    "To serve, invert onto a cutting board and slice carefully",
+                    "Garnish with edible flowers and herb sprigs"
+                ],
+                badge: "Vegan"
+            },
+            {
+                id: 3,
+                title: "Textured Chocolate Sphere",
+                category: ["dessert", "molecular"],
+                time: "1 hour",
+                type: "Dessert",
+                image: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1371&q=80",
+                description: "Melting chocolate sphere with surprise ingredients inside that creates a magical reveal when warm sauce is poured over it. The sphere collapses dramatically to reveal hidden textures and flavors, creating a multisensory dining experience.",
+                ingredients: [
+                    "200g dark chocolate (70% cocoa)",
+                    "50g cocoa butter",
+                    "1/4 cup raspberry coulis",
+                    "1/4 cup vanilla ice cream",
+                    "1 tbsp freeze-dried raspberry powder",
+                    "1 tsp gold leaf (optional)",
+                    "1/4 cup hot chocolate sauce",
+                    "Edible flowers for garnish",
+                    "1 tbsp maltodextrin",
+                    "1/4 cup crushed hazelnuts"
+                ],
+                instructions: [
+                    "Temper chocolate with cocoa butter for a glossy finish and snap",
+                    "Lightly grease small balloons (about 10cm diameter when inflated)",
+                    "Dip balloons in tempered chocolate to create half-spheres",
+                    "Let set completely, then carefully deflate and remove balloons",
+                    "Make chocolate soil by mixing maltodextrin with melted chocolate and crushed hazelnuts",
+                    "Place a spoonful of raspberry coulis in each chocolate sphere",
+                    "Add a small scoop of vanilla ice cream",
+                    "Sprinkle with chocolate soil and freeze-dried raspberry powder",
+                    "Carefully seal the opening with more tempered chocolate",
+                    "Place gold leaf decoration if using",
+                    "To serve, place sphere on a chilled plate and pour hot chocolate sauce over at the table",
+                    "Garnish with edible flowers as the sphere melts open"
+                ],
+                badge: "Signature"
+            },
+            {
+                id: 4,
+                title: "Reverse-Engineered Sushi",
+                category: ["fusion", "molecular"],
+                time: "30 mins",
+                type: "Main Course",
+                image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "All sushi components presented separately for a DIY dining experience that engages all the senses. This deconstructed approach allows diners to appreciate each element individually before combining them to their taste.",
+                ingredients: [
+                    "1 cup sushi rice",
+                    "1 tbsp rice vinegar",
+                    "1 tsp sugar",
+                    "1/2 tsp salt",
+                    "200g fresh salmon (sushi-grade)",
+                    "200g fresh tuna (sushi-grade)",
+                    "1 avocado",
+                    "1 cucumber",
+                    "Nori sheets",
+                    "Wasabi paste",
+                    "Pickled ginger",
+                    "Soy sauce",
+                    "1 tsp xanthan gum",
+                    "1/2 cup heavy cream"
+                ],
+                instructions: [
+                    "Cook sushi rice according to package instructions",
+                    "Season rice with vinegar, sugar and salt mixture while still warm",
+                    "Slice fish into perfect rectangular blocks (about 1cm thick)",
+                    "Cut avocado and cucumber into matchsticks",
+                    "Toast nori sheets lightly and cut into strips",
+                    "Prepare wasabi foam by blending wasabi paste with heavy cream and xanthan gum",
+                    "Portion rice into small mounds using an ice cream scoop",
+                    "Arrange all components artistically on a large platter with small bowls for dipping",
+                    "Include instructions for guests to create their own combinations",
+                    "Serve with small bowls of soy sauce and pickled ginger on the side",
+                    "Encourage guests to experiment with different textures and flavor combinations"
+                ],
+                badge: "Interactive"
+            },
+            {
+                id: 5,
+                title: "Transparent Ravioli",
+                category: ["molecular", "fusion"],
+                time: "1.5 hours",
+                type: "Main Course",
+                image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "See-through pasta with vibrant fillings that change color as you eat, creating a dynamic dining experience. The translucent wrapper allows the colorful fillings to shine through, while special ingredients create color-changing effects when exposed to heat or acidity.",
+                ingredients: [
+                    "2 cups tapioca starch",
+                    "1/2 cup hot water",
+                    "1 tbsp vegetable oil",
+                    "1 tsp salt",
+                    "1 cup ricotta cheese",
+                    "1/2 cup pureed beetroot (for pink filling)",
+                    "1/2 cup pureed spinach (for green filling)",
+                    "1/4 cup grated parmesan",
+                    "1 egg yolk",
+                    "Fresh basil leaves",
+                    "Truffle oil for drizzling",
+                    "1 tsp butterfly pea flower powder (for color change effect)"
+                ],
+                instructions: [
+                    "Mix tapioca starch with hot water, oil and salt to form a smooth dough",
+                    "Divide dough and knead in butterfly pea flower powder to one portion for color-changing effect",
+                    "Roll dough very thin between sheets of parchment paper",
+                    "Prepare fillings by mixing ricotta separately with vegetable purees",
+                    "Add parmesan and egg yolk to each filling mixture",
+                    "Cut dough into circles using a 3-inch cutter",
+                    "Place small amounts of filling in center of each circle",
+                    "Brush edges with water and seal ravioli carefully",
+                    "Poach in simmering water for 2-3 minutes until translucent",
+                    "Serve with parmesan shavings, fresh basil and truffle oil",
+                    "The colors will blend and change as guests cut into the ravioli",
+                    "For added drama, squeeze lemon over blue dough to watch it turn purple"
+                ],
+                badge: "Innovative"
+            },
+            {
+                id: 6,
+                title: "Sous Vide Steak Cubes",
+                category: ["molecular"],
+                time: "2 hours",
+                type: "Main Course",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "Perfectly cooked steak cubes with molecular gastronomy sauces that create bursts of flavor in every bite. The sous vide method ensures edge-to-edge perfection, while the innovative sauces add surprising elements to this classic dish.",
+                ingredients: [
+                    "400g beef tenderloin",
+                    "1 tbsp salt",
+                    "1 tsp black pepper",
+                    "2 sprigs rosemary",
+                    "2 cloves garlic",
+                    "1/4 cup soy sauce",
+                    "1 tbsp sodium alginate",
+                    "1 tsp calcium lactate",
+                    "1 cup beef stock",
+                    "1/2 cup red wine",
+                    "2 tbsp butter",
+                    "1 tsp smoked paprika",
+                    "1 tbsp honey"
+                ],
+                instructions: [
+                    "Season beef with salt, pepper, crushed rosemary and garlic",
+                    "Vacuum seal beef in sous vide bags with aromatics",
+                    "Cook in water bath at 55°C (131°F) for 1.5 hours",
+                    "Prepare red wine spheres by mixing wine with sodium alginate",
+                    "Create calcium lactate bath with beef stock",
+                    "Using a spoon, form wine spheres and set in calcium bath for 1 minute",
+                    "Remove spheres and rinse in clean water",
+                    "Make smoked paprika honey by warming honey with paprika",
+                    "Remove steak from bags and pat very dry",
+                    "Sear steak cubes in butter for 30 seconds per side for caramelization",
+                    "Arrange steak cubes on plate with wine spheres",
+                    "Drizzle with smoked paprika honey",
+                    "The spheres will burst with wine flavor when pierced"
+                ],
+                badge: "Premium"
+            },
+            {
+                id: 7,
+                title: "Liquid Olive Salad",
+                category: ["molecular", "vegetarian"],
+                time: "25 mins",
+                type: "Appetizer",
+                image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "A playful take on the classic salad with liquid olive spheres that burst with flavor in your mouth. The olives are transformed into delicate orbs that release their full flavor when bitten, creating a surprising textural experience.",
+                ingredients: [
+                    "1 cup green olives, pitted",
+                    "1/4 cup olive brine",
+                    "1 tsp sodium alginate",
+                    "1 tsp calcium chloride",
+                    "2 cups water",
+                    "Mixed salad greens (butter lettuce, arugula, radicchio)",
+                    "1/4 cup cherry tomatoes, halved",
+                    "1/4 cup cucumber, diced",
+                    "2 tbsp red onion, thinly sliced",
+                    "2 tbsp olive oil",
+                    "1 tbsp balsamic vinegar",
+                    "1 tsp Dijon mustard",
+                    "1/2 tsp honey"
+                ],
+                instructions: [
+                    "Blend olives with brine and sodium alginate until completely smooth",
+                    "Strain mixture through fine mesh sieve to remove any solids",
+                    "Let mixture rest to remove air bubbles (about 15 minutes)",
+                    "Prepare calcium chloride bath by dissolving in water",
+                    "Using a spoon, form olive mixture into spheres in the calcium bath",
+                    "Let spheres set for 1 minute, then gently transfer to clean water",
+                    "Prepare salad greens and arrange on plates with tomatoes, cucumber and onion",
+                    "Make vinaigrette by whisking olive oil, balsamic, mustard and honey",
+                    "Drizzle some vinaigrette over salad greens",
+                    "Place olive spheres carefully on top of salad",
+                    "Serve immediately, allowing guests to experience the burst of flavor"
+                ],
+                badge: "Textural"
+            },
+            {
+                id: 8,
+                title: "Cloud Eggs Benedict",
+                category: ["molecular"],
+                time: "30 mins",
+                type: "Breakfast",
+                image: "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80",
+                description: "A light-as-air version of the classic eggs benedict with molecular hollandaise foam. The eggs are transformed into fluffy clouds with hidden yolks, while the hollandaise becomes a delicate foam that melts on contact.",
+                ingredients: [
+                    "4 eggs",
+                    "2 English muffins",
+                    "4 slices Canadian bacon",
+                    "1/2 cup butter, melted",
+                    "2 egg yolks",
+                    "1 tbsp lemon juice",
+                    "1/2 tsp salt",
+                    "Pinch of cayenne pepper",
+                    "1/2 tsp xanthan gum",
+                    "Chives for garnish",
+                    "1 tsp white vinegar"
+                ],
+                instructions: [
+                    "Separate all eggs, keeping yolks and whites separate",
+                    "Whip egg whites to stiff peaks with a pinch of salt",
+                    "Form clouds on parchment-lined baking sheet, making wells in center",
+                    "Bake at 230°C (450°F) for 3 minutes",
+                    "Carefully add yolks to the wells and bake 3 more minutes",
+                    "Toast English muffins and warm Canadian bacon",
+                    "Make hollandaise by blending yolks, lemon juice, and melted butter",
+                    "Add xanthan gum and blend to create stable foam",
+                    "Poach remaining eggs in water with vinegar for traditional benedict option",
+                    "Assemble with muffin, bacon, egg cloud and hollandaise foam",
+                    "Garnish with chopped chives and cayenne pepper",
+                    "Serve immediately as foam will begin to collapse"
+                ],
+                badge: "Breakfast"
+            },
+            {
+                id: 9,
+                title: "Crystal Clear Gazpacho",
+                category: ["molecular", "vegetarian", "vegan"],
+                time: "1 hour",
+                type: "Appetizer",
+                image: "https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                description: "All the flavors of traditional gazpacho clarified into a stunning transparent soup with vegetable caviar. The clear broth delivers the essence of summer vegetables, while the caviar provides bursts of concentrated flavor.",
+                ingredients: [
+                    "6 ripe tomatoes, chopped",
+                    "1 cucumber, peeled and chopped",
+                    "1 red bell pepper, chopped",
+                    "2 cloves garlic",
+                    "3 tbsp sherry vinegar",
+                    "1/2 cup olive oil",
+                    "1 tsp agar agar",
+                    "1 tsp sodium alginate",
+                    "1 tsp calcium chloride",
+                    "Salt to taste",
+                    "Micro herbs for garnish",
+                    "1/2 tsp xanthan gum"
+                ],
+                instructions: [
+                    "Blend vegetables with vinegar and olive oil until completely smooth",
+                    "Line a fine mesh strainer with cheesecloth and strain mixture",
+                    "Let strain slowly in refrigerator overnight for clearest result",
+                    "Prepare vegetable caviar by blending some of the vegetable pulp with sodium alginate",
+                    "Create calcium chloride bath with water",
+                    "Form caviar pearls using a dropper into the calcium bath",
+                    "Rinse pearls and reserve",
+                    "Heat clarified soup with agar agar to create light gel texture",
+                    "Add xanthan gum for perfect mouthfeel",
+                    "Chill soup until set but still liquid (about 2 hours)",
+                    "Serve in clear glasses or bowls with vegetable caviar",
+                    "Garnish with micro herbs and drizzle of olive oil"
+                ],
+                badge: "Vegan"
+            },
+            {
+                id: 10,
+                title: "Deconstructed Tiramisu",
+                category: ["dessert", "molecular"],
+                time: "45 mins",
+                type: "Dessert",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+                description: "All the components of tiramisu presented in a modern way with coffee air and mascarpone pearls. The classic flavors are reimagined with innovative textures that surprise and delight.",
+                ingredients: [
+                    "1 cup strong espresso, cooled",
+                    "1/2 cup sugar",
+                    "3 egg yolks",
+                    "250g mascarpone",
+                    "1/2 cup heavy cream",
+                    "1 tsp vanilla extract",
+                    "1 tbsp gelatin",
+                    "Ladyfinger cookies",
+                    "Cocoa powder",
+                    "1/2 tsp soy lecithin",
+                    "1 tsp sodium alginate",
+                    "1 tsp calcium lactate"
+                ],
+                instructions: [
+                    "Make coffee air by blending 1/2 cup espresso with soy lecithin",
+                    "Prepare mascarpone cream by whipping with yolks, sugar and vanilla",
+                    "Create coffee jelly by blooming gelatin in remaining espresso",
+                    "Pour into shallow pan and chill until set, then cut into cubes",
+                    "Make mascarpone pearls using reverse spherification technique",
+                    "Crumble some ladyfingers for texture",
+                    "Layer components artistically in a bowl or plate",
+                    "Top with coffee air foam just before serving",
+                    "Dust with cocoa powder through a stencil for presentation",
+                    "Include whole ladyfinger for dipping element"
+                ],
+                badge: "Signature"
+            },
+            {
+                id: 11,
+                title: "Rainbow Carrot Ribbons",
+                category: ["vegetarian", "vegan"],
+                time: "20 mins",
+                type: "Side Dish",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "Colorful carrot ribbons with herb-infused oils that create a stunning and healthy side dish. The natural colors of rainbow carrots are showcased in this simple yet impressive preparation.",
+                ingredients: [
+                    "4 rainbow carrots (purple, yellow, orange, white)",
+                    "2 tbsp olive oil",
+                    "1 tbsp lemon juice",
+                    "1/4 cup mixed fresh herbs (dill, parsley, chives)",
+                    "1 tsp honey",
+                    "1/2 tsp salt",
+                    "1/4 tsp black pepper",
+                    "Edible flowers for garnish",
+                    "1/4 cup pistachios, chopped"
+                ],
+                instructions: [
+                    "Use a vegetable peeler to create long ribbons from carrots",
+                    "Blend herbs with olive oil and lemon juice until smooth",
+                    "Strain herb oil through cheesecloth for clear green oil",
+                    "Toss carrot ribbons gently with herb oil to coat",
+                    "Arrange ribbons in a circular pattern on plates, alternating colors",
+                    "Drizzle with honey and season with salt and pepper",
+                    "Toast pistachios lightly and sprinkle over carrots",
+                    "Garnish with edible flowers for color contrast",
+                    "Serve immediately for best texture and color presentation"
+                ],
+                badge: "Vegan"
+            },
+            {
+                id: 12,
+                title: "Smoked Chocolate Mousse",
+                category: ["dessert", "molecular"],
+                time: "1 hour",
+                type: "Dessert",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+                description: "Velvety chocolate mousse served under a glass dome filled with aromatic smoke. The dramatic presentation releases fragrant smoke when lifted, enhancing the chocolate experience.",
+                ingredients: [
+                    "200g dark chocolate (70% cocoa)",
+                    "3 eggs, separated",
+                    "1/4 cup sugar",
+                    "1 cup heavy cream",
+                    "1 tsp vanilla extract",
+                    "Pinch of salt",
+                    "Wood chips for smoking (apple or cherry)",
+                    "Edible gold leaf for garnish",
+                    "1/2 tsp instant coffee",
+                    "1 tbsp bourbon (optional)"
+                ],
+                instructions: [
+                    "Melt chocolate over double boiler with instant coffee",
+                    "Whip egg yolks with half the sugar until pale and thick",
+                    "Fold melted chocolate into yolk mixture with bourbon if using",
+                    "Whip cream to soft peaks with vanilla",
+                    "Beat egg whites with remaining sugar to stiff peaks with pinch of salt",
+                    "Gently fold cream then whites into chocolate mixture",
+                    "Portion into serving glasses and chill for 2 hours",
+                    "Before serving, add wood chips to dome and light with torch",
+                    "Cover with dome to fill with smoke (about 1 minute)",
+                    "Place smoked dome over mousse at table",
+                    "Remove dome for dramatic presentation",
+                    "Garnish with gold leaf and serve immediately"
+                ],
+                badge: "Signature"
+            },
+            {
+                id: 13,
+                title: "Saffron-Infused Panna Cotta",
+                category: ["dessert"],
+                time: "4 hours",
+                type: "Dessert",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+                description: "Silky panna cotta with golden saffron threads and a surprise berry center. The luxurious dessert hides a vibrant fruit compote that's revealed with the first spoonful.",
+                ingredients: [
+                    "2 cups heavy cream",
+                    "1/2 cup whole milk",
+                    "1/2 cup sugar",
+                    "1 vanilla bean, split and scraped",
+                    "Pinch of saffron threads",
+                    "2 tsp gelatin",
+                    "1/4 cup mixed berries (raspberries, blueberries, blackberries)",
+                    "1 tbsp honey",
+                    "Edible flowers for garnish",
+                    "1/4 cup water",
+                    "1 tbsp rosewater"
+                ],
+                instructions: [
+                    "Bloom gelatin in cold milk for 5 minutes",
+                    "Heat cream with sugar, vanilla pod and saffron until steaming",
+                    "Remove vanilla pod and stir in gelatin mixture until dissolved",
+                    "Strain through fine mesh sieve into a pouring jug",
+                    "Make berry compote by simmering berries with honey, water and rosewater",
+                    "Cool compote slightly, then place a spoonful in each serving glass",
+                    "Pour panna cotta mixture over compote",
+                    "Chill for at least 4 hours until fully set",
+                    "To serve, garnish with edible flowers and gold leaf if desired",
+                    "The compote will rise up through the panna cotta when spooned"
+                ],
+                badge: "Premium"
+            },
+            {
+                id: 14,
+                title: "Herb-Crusted Salmon",
+                category: ["fusion"],
+                time: "25 mins",
+                type: "Main Course",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "Perfectly cooked salmon with a colorful herb crust and citrus foam. The vibrant green crust contrasts beautifully with the pink salmon, while the foam adds lightness.",
+                ingredients: [
+                    "4 salmon fillets (150g each)",
+                    "1 cup mixed fresh herbs (dill, parsley, tarragon, chives)",
+                    "1/2 cup panko breadcrumbs",
+                    "2 tbsp Dijon mustard",
+                    "2 tbsp olive oil",
+                    "1 lemon, zested and juiced",
+                    "1/2 cup heavy cream",
+                    "1 tsp soy lecithin",
+                    "Salt and pepper to taste",
+                    "1/2 cup white wine",
+                    "1 shallot, minced"
+                ],
+                instructions: [
+                    "Preheat oven to 200°C (400°F)",
+                    "Pulse herbs with breadcrumbs in food processor until fine",
+                    "Brush salmon with mustard and press herb crust on top",
+                    "Heat oil in oven-proof pan and sear salmon crust-side down for 2 minutes",
+                    "Flip and transfer to oven for 8-10 minutes until just cooked",
+                    "Make citrus foam by blending lemon juice with cream and lecithin",
+                    "For sauce, sauté shallot in pan drippings, deglaze with white wine",
+                    "Reduce wine by half and strain",
+                    "Plate salmon with wine reduction",
+                    "Top with citrus foam and lemon zest",
+                    "Serve with seasonal vegetables"
+                ],
+                badge: "Healthy"
+            },
+            {
+                id: 15,
+                title: "Mushroom Forest",
+                category: ["vegetarian", "vegan"],
+                time: "35 mins",
+                type: "Appetizer",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "An edible forest scene with various mushrooms, truffle soil, and herb moss. This whimsical presentation turns a simple mushroom dish into a magical woodland experience.",
+                ingredients: [
+                    "Assorted mushrooms (shiitake, oyster, enoki, chanterelle)",
+                    "2 tbsp olive oil",
+                    "2 cloves garlic, minced",
+                    "1/2 cup breadcrumbs",
+                    "1 tbsp truffle oil",
+                    "1/4 cup parsley leaves",
+                    "1 tbsp butter (or olive oil for vegan)",
+                    "Salt and pepper to taste",
+                    "Microgreens for garnish",
+                    "1/4 cup walnuts, toasted",
+                    "1 tsp thyme leaves"
+                ],
+                instructions: [
+                    "Clean and trim mushrooms, keeping some stems long for 'tree trunks'",
+                    "Heat olive oil and sauté garlic until fragrant",
+                    "Add mushrooms and cook until tender, seasoning with salt and pepper",
+                    "Make truffle soil by processing breadcrumbs with truffle oil and walnuts",
+                    "Blend parsley with butter to create green 'moss'",
+                    "Arrange mushrooms on plates to resemble trees in a forest",
+                    "Sprinkle truffle soil around base of mushrooms",
+                    "Dot with parsley moss and thyme leaves",
+                    "Garnish with microgreens as 'undergrowth'",
+                    "Serve with crusty bread to scoop up the delicious 'forest floor'"
+                ],
+                badge: "Vegan"
+            },
+            {
+                id: 16,
+                title: "Lemon Curd Ravioli",
+                category: ["dessert", "molecular"],
+                time: "1 hour",
+                type: "Dessert",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+                description: "Sweet pasta filled with lemon curd and served with raspberry pearls. The unexpected combination of pasta and dessert creates a memorable finish to any meal.",
+                ingredients: [
+                    "1 cup all-purpose flour",
+                    "1 egg",
+                    "1 tbsp sugar",
+                    "Pinch of salt",
+                    "1/2 cup lemon curd",
+                    "1/2 cup raspberries",
+                    "1 tsp sodium alginate",
+                    "1 tsp calcium chloride",
+                    "1 cup water",
+                    "Powdered sugar for dusting",
+                    "Mint leaves for garnish",
+                    "1/4 cup white chocolate, melted"
+                ],
+                instructions: [
+                    "Make pasta dough with flour, egg, sugar and salt",
+                    "Rest dough for 30 minutes wrapped in plastic",
+                    "Roll very thin and cut into circles using a 3-inch cutter",
+                    "Pipe lemon curd onto half the circles",
+                    "Brush edges with water and cover with remaining circles",
+                    "Seal edges carefully, pressing out air bubbles",
+                    "Boil for 2-3 minutes until tender but still al dente",
+                    "Make raspberry pearls using spherification technique",
+                    "Serve ravioli dusted with powdered sugar",
+                    "Garnish with raspberry pearls and mint leaves",
+                    "Drizzle with melted white chocolate",
+                    "The pearls will burst with flavor when eaten"
+                ],
+                badge: "Innovative"
+            },
+            {
+                id: 17,
+                title: "Beetroot-Cured Salmon",
+                category: ["fusion"],
+                time: "48 hours",
+                type: "Appetizer",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "Vibrant pink salmon cured with beetroot and served with horseradish snow. The natural color from beets creates stunning visual appeal, while the snow adds a temperature contrast.",
+                ingredients: [
+                    "500g fresh salmon fillet, skin on",
+                    "2 raw beetroots, grated",
+                    "1/4 cup salt",
+                    "1/4 cup sugar",
+                    "1 tbsp crushed peppercorns",
+                    "1 bunch dill, chopped",
+                    "1/2 cup crème fraîche",
+                    "1 tbsp prepared horseradish",
+                    "1 tsp gelatin",
+                    "Cucumber ribbons",
+                    "Micro herbs for garnish",
+                    "1 lemon, zested"
+                ],
+                instructions: [
+                    "Mix grated beetroot with salt, sugar, pepper and dill",
+                    "Cover salmon completely with cure mixture",
+                    "Wrap tightly in plastic and refrigerate for 48 hours",
+                    "Rinse cure off and pat salmon dry",
+                    "Slice thinly at an angle for serving",
+                    "Make horseradish snow by blending crème fraîche with horseradish and gelatin",
+                    "Freeze mixture then grate over salmon",
+                    "Serve with cucumber ribbons and lemon zest",
+                    "Garnish with micro herbs",
+                    "The snow will melt slowly on the salmon"
+                ],
+                badge: "Premium"
+            },
+            {
+                id: 18,
+                title: "Caramelized Onion Tart",
+                category: ["vegetarian"],
+                time: "1.5 hours",
+                type: "Appetizer",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "Sweet onion tart with goat cheese foam and balsamic glaze. The classic flavors are elevated with modern techniques for a stunning presentation.",
+                ingredients: [
+                    "1 sheet puff pastry",
+                    "4 large onions, thinly sliced",
+                    "2 tbsp butter",
+                    "1 tbsp olive oil",
+                    "1 tsp sugar",
+                    "1/2 tsp salt",
+                    "1/4 cup balsamic vinegar",
+                    "1/2 cup goat cheese",
+                    "1/4 cup heavy cream",
+                    "1 tsp soy lecithin",
+                    "Fresh thyme leaves",
+                    "1 egg, beaten (for egg wash)"
+                ],
+                instructions: [
+                    "Caramelize onions slowly in butter and oil with sugar and salt (about 45 minutes)",
+                    "Reduce balsamic vinegar by half to create thick glaze",
+                    "Roll out puff pastry and prick with fork",
+                    "Brush edges with egg wash for golden finish",
+                    "Spread onions over pastry, leaving 1-inch border",
+                    "Bake at 190°C (375°F) for 20-25 minutes until golden",
+                    "Make goat cheese foam by blending cheese with cream and lecithin",
+                    "Drizzle tart with balsamic glaze",
+                    "Top with goat cheese foam using a whipper",
+                    "Garnish with fresh thyme leaves",
+                    "Cut into squares for serving"
+                ],
+                badge: "Vegetarian"
+            },
+            {
+                id: 19,
+                title: "Matcha White Chocolate Mousse",
+                category: ["dessert"],
+                time: "3 hours",
+                type: "Dessert",
+                image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+                description: "Layered dessert with matcha mousse, white chocolate ganache and red bean crumble. The Japanese-inspired flavors create a harmonious balance of bitter and sweet.",
+                ingredients: [
+                    "1 cup white chocolate chips",
+                    "1/2 cup heavy cream",
+                    "2 tbsp matcha powder",
+                    "2 eggs, separated",
+                    "1/4 cup sugar",
+                    "1/2 cup cooked adzuki beans",
+                    "1/4 cup flour",
+                    "1/4 cup butter",
+                    "1 tbsp brown sugar",
+                    "Edible gold leaf for garnish",
+                    "1/2 tsp vanilla extract"
+                ],
+                instructions: [
+                    "Make white chocolate ganache by heating cream and pouring over chocolate",
+                    "Divide ganache, mix half with matcha powder",
+                    "Whip egg whites with sugar to stiff peaks",
+                    "Fold into matcha mixture for light mousse",
+                    "Make red bean crumble by processing beans with flour, butter and brown sugar",
+                    "Bake crumble at 180°C (350°F) for 15 minutes until crisp",
+                    "Layer white chocolate ganache, then matcha mousse in glasses",
+                    "Top with red bean crumble for texture contrast",
+                    "Garnish with gold leaf and matcha powder dusting",
+                    "Chill for 2 hours before serving"
+                ],
+                badge: "Premium"
+            },
+            {
+                id: 20,
+                title: "Truffle-Infused Risotto",
+                category: ["vegetarian"],
+                time: "40 mins",
+                type: "Main Course",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+                description: "Creamy risotto with black truffle and parmesan foam. The earthy truffle flavor permeates every bite, while the foam adds a modern touch to this Italian classic.",
+                ingredients: [
+                    "1 cup Arborio rice",
+                    "4 cups vegetable stock, kept warm",
+                    "1/2 cup white wine",
+                    "1 shallot, minced",
+                    "2 tbsp butter",
+                    "1/4 cup grated parmesan",
+                    "1 black truffle",
+                    "1/2 cup heavy cream",
+                    "1 tsp soy lecithin",
+                    "Salt and pepper to taste",
+                    "Chives for garnish",
+                    "1 tbsp truffle oil"
+                ],
+                instructions: [
+                    "Heat stock with a few slices of truffle for infusion",
+                    "Sauté shallot in butter until translucent",
+                    "Add rice and toast for 2 minutes until slightly translucent",
+                    "Deglaze with white wine and cook until absorbed",
+                    "Add stock gradually, stirring constantly until rice is al dente",
+                    "Stir in parmesan and season to taste",
+                    "Make parmesan foam by blending cream with lecithin and remaining parmesan",
+                    "Plate risotto and top with foam",
+                    "Shave remaining truffle over the top",
+                    "Garnish with chives and drizzle with truffle oil",
+                    "Serve immediately for best texture"
+                ],
+                badge: "Vegetarian"
+            }
+        ];
+
+        // DOM Elements
+const featuredSection = document.getElementById('featured');
+const recipesContainer = document.getElementById('recipes-container');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+const searchBox = document.querySelector('.search-box');
+const searchSuggestions = document.getElementById('search-suggestions');
+const recipeModal = document.getElementById('recipe-modal');
+const closeModal = document.getElementById('close-modal');
+const modalContent = document.getElementById('modal-content');
+const newsletterForm = document.getElementById('newsletter-form');
+const notification = document.getElementById('notification');
+const categoryCards = document.querySelectorAll('.category-card');
+const navLinks = document.querySelectorAll('.nav-links a');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-links');
+const contactForm = document.getElementById('contactForm');
+const backToTop = document.getElementById('back-to-top');
+const sections = document.querySelectorAll('section');
+const currentSection = document.querySelectorAll('section[id]');
+const loadMoreBtn = document.getElementById('load-more');
+
+// Pagination variables
+let selectedSuggestionIndex = -1;
+let currentSearchTerm = '';
+const recipesPerPage = 9;
+let currentPage = 1;
+let currentRecipes = [...recipes];
+
+        // Display all recipes initially
+        displayRecipes(recipes);
+
+        // Mobile menu toggle
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Update active link
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Update active link on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Filter recipes by category
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                if (category === 'all') {
+                    displayRecipes(recipes);
+                } else {
+                    const filteredRecipes = recipes.filter(recipe => 
+                        recipe.category.includes(category)
+                    );
+                    displayRecipes(filteredRecipes);
+                }
+            });
+        });
+// Category filter functionality
+document.querySelectorAll('.category-filter').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.dataset.category;
+        
+        // Filter recipes
+        const filteredRecipes = category === 'all' 
+            ? recipes 
+            : recipes.filter(recipe => recipe.category.includes(category));
+        
+        // Update display
+        currentPage = 1;
+        currentRecipes = filteredRecipes;
+        displayRecipes(filteredRecipes);
+        
+        // Update active filter button
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Scroll to recipes section
+        document.getElementById('featured').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+
+
+
+
+// ===== NAVIGATION ACTIVE STATE MANAGEMENT =====
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+    const headerHeight = document.querySelector('nav').offsetHeight;
+    const homeSection = document.getElementById('home');
+
+    // Function to update active nav link
+    function updateActiveNav() {
+        let currentSection = '';
+        const scrollPosition = window.scrollY + headerHeight;
+
+        // Determine which section is in view
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        // Update nav links
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href').substring(1);
+            
+            // Special case for home page
+            if (!currentSection && window.scrollY < 100) {
+                if (linkHref === 'home') {
+                    link.classList.add('active');
+                }
+            } 
+            // Regular section highlighting
+            else if (linkHref === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Run on scroll and initial load
+    window.addEventListener('scroll', updateActiveNav);
+    window.addEventListener('load', updateActiveNav);
+
+    // Smooth scrolling for nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - headerHeight,
+                    behavior: 'smooth'
+                });
+                
+                // Update active state immediately
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+});
+
+// ===== MOBILE MENU TOGGLE =====
+document.querySelector('.hamburger').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+    this.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+    });
+});
+
+// ===== SCROLL PADDING FOR FIXED NAV =====
+document.documentElement.style.scrollPaddingTop = 
+    document.querySelector('nav').offsetHeight + 'px';
+
+
+
+
+
+
+
+
+        // Category cards filtering
+        categoryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const category = card.dataset.category;
+                // Update filter buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.category === category) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                const filteredRecipes = recipes.filter(recipe => 
+                    recipe.category.includes(category)
+                );
+                displayRecipes(filteredRecipes);
+                
+                // Scroll to recipes section
+                document.querySelector('.featured').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        // Search functionality
+   searchInput.addEventListener('input', handleSearchInput);
+searchInput.addEventListener('keydown', handleSearchKeydown);
+searchBtn.addEventListener('click', executeSearch);
+searchSuggestions.addEventListener('click', handleSuggestionClick);
+document.addEventListener('click', handleOutsideClick);
+
+// Search Functions
+function handleSearchInput() {
+    const searchTerm = this.value.trim();
+    currentSearchTerm = searchTerm.toLowerCase();
+    
+    if (searchTerm.length > 0) {
+        const suggestions = getFilteredRecipes(currentSearchTerm).slice(0, 5);
+        showSuggestions(suggestions);
+    } else {
+        hideSuggestions();
+        resetSearch();
+    }
+}
+
+function handleSearchKeydown(e) {
+    const suggestions = document.querySelectorAll('#search-suggestions div');
+    
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedSuggestionIndex = Math.min(selectedSuggestionIndex + 1, suggestions.length - 1);
+        updateSelectedSuggestion();
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedSuggestionIndex = Math.max(selectedSuggestionIndex - 1, -1);
+        updateSelectedSuggestion();
+    } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (selectedSuggestionIndex >= 0) {
+            const selectedSuggestion = suggestions[selectedSuggestionIndex];
+            searchInput.value = selectedSuggestion.textContent;
+            currentSearchTerm = selectedSuggestion.textContent.toLowerCase();
+        }
+        executeSearch();
+    }
+}
+
+function handleSuggestionClick(e) {
+    if (e.target && e.target.matches('div')) {
+        searchInput.value = e.target.textContent;
+        currentSearchTerm = e.target.textContent.toLowerCase();
+        executeSearch();
+    }
+}
+
+function handleOutsideClick(e) {
+    if (!searchBox.contains(e.target)) {
+        hideSuggestions();
+    }
+}
+
+function executeSearch() {
+    hideSuggestions();
+    
+    if (currentSearchTerm === '') {
+        resetSearch();
+        return;
+    }
+    
+    const filteredRecipes = getFilteredRecipes(currentSearchTerm);
+    displaySearchResults(filteredRecipes);
+}
+
+function getFilteredRecipes(searchTerm) {
+    return recipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(searchTerm) ||
+        recipe.description.toLowerCase().includes(searchTerm) ||
+        recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+    );
+}
+
+    function displaySearchResults(filteredRecipes) {
+    currentPage = 1;
+    currentRecipes = filteredRecipes;
+    displayRecipes(filteredRecipes);
+    
+    // Reset filter buttons
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === 'all') {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Scroll to results with extra space
+    setTimeout(() => {
+        if (filteredRecipes.length > 0) {
+            const firstRecipeCard = document.querySelector('.recipe-card');
+            if (firstRecipeCard) {
+                // Calculate position with extra space
+                const scrollPosition = firstRecipeCard.offsetTop - 120; // 120px extra space
+                
+                window.scrollTo({
+                    top: scrollPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Highlight first matching recipe
+                firstRecipeCard.style.boxShadow = '0 0 0 3px rgba(255, 107, 107, 0.5)';
+                setTimeout(() => {
+                    firstRecipeCard.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+    }, 100);
+    
+    // Visual feedback
+    searchBox.classList.add('pulse');
+    setTimeout(() => searchBox.classList.remove('pulse'), 1000);
+}
+
+function resetSearch() {
+    currentPage = 1;
+    currentRecipes = [...recipes];
+    displayRecipes(recipes);
+    
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === 'all') {
+            btn.classList.add('active');
+        }
+    });
+}
+
+function showSuggestions(suggestions) {
+    if (suggestions.length > 0) {
+        searchSuggestions.innerHTML = '';
+        suggestions.forEach(recipe => {
+            const suggestion = document.createElement('div');
+            suggestion.innerHTML = `<i class="fas fa-utensils"></i>${recipe.title}`;
+            searchSuggestions.appendChild(suggestion);
+        });
+        searchSuggestions.classList.add('active');
+        searchBox.classList.add('suggestions-active');
+        selectedSuggestionIndex = -1;
+    } else {
+        hideSuggestions();
+    }
+}
+
+function hideSuggestions() {
+    searchSuggestions.classList.remove('active');
+    searchBox.classList.remove('suggestions-active');
+    selectedSuggestionIndex = -1;
+}
+
+function updateSelectedSuggestion() {
+    const suggestions = document.querySelectorAll('#search-suggestions div');
+    suggestions.forEach((suggestion, index) => {
+        suggestion.classList.toggle('highlight', index === selectedSuggestionIndex);
+    });
+    
+    if (selectedSuggestionIndex >= 0) {
+        suggestions[selectedSuggestionIndex].scrollIntoView({
+            block: 'nearest'
+        });
+    }
+}
+
+     
+// Add this function to your script
+function filterByCategory(category) {
+    // Update filter buttons
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === category) {
+            btn.classList.add('active');
+        }
+    });
+    
+    const filteredRecipes = category === 'all' 
+        ? recipes 
+        : recipes.filter(recipe => recipe.category.includes(category));
+    
+    displayRecipes(filteredRecipes);
+    
+    // Scroll to recipes section if not already there
+    if (window.location.hash !== '#featured') {
+        document.querySelector('.featured').scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
+
+// Then update both event listeners to use this function:
+
+// For filter buttons
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterByCategory(button.dataset.category);
+    });
+});
+
+// For category cards
+categoryCards.forEach(card => {
+    card.addEventListener('click', () => {
+        filterByCategory(card.dataset.category);
+    });
+});
+
+// For footer category links
+document.querySelectorAll('.footer-categories .category-filter').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterByCategory(link.dataset.category);
+    });
+});
+function searchRecipes() {
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    hideSuggestions();
+    
+    if (searchTerm === '') {
+        currentPage = 1;
+        currentRecipes = [...recipes];
+        displayRecipes(recipes);
+        return;
+    }
+    
+    const filteredRecipes = recipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(searchTerm) ||
+        recipe.description.toLowerCase().includes(searchTerm) ||
+        recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm))
+    );
+    
+    currentPage = 1;
+    currentRecipes = filteredRecipes;
+    displayRecipes(filteredRecipes);
+    
+    // Reset filter buttons
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.category === 'all') {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Scroll to featured section after a slight delay to allow DOM update
+    setTimeout(() => {
+        const featuredSection = document.getElementById('featured');
+        if (featuredSection) {
+            featuredSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }, 100);
+    
+    // Add visual feedback
+    searchBox.classList.add('pulse');
+    setTimeout(() => searchBox.classList.remove('pulse'), 1000);
+}
+
+        // Close suggestions when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchBox.contains(e.target)) {
+                hideSuggestions();
+            }
+        });
+
+        // Display recipes in the grid
+        // Display recipes with pagination
+function displayRecipes(recipesToDisplay, resetPagination = true) {
+    if (resetPagination) {
+        currentPage = 1;
+        currentRecipes = [...recipesToDisplay];
+    }
+    
+    recipesContainer.innerHTML = '';
+    
+    if (currentRecipes.length === 0) {
+        recipesContainer.innerHTML = '<p class="no-results">No recipes found. Try a different search.</p>';
+        loadMoreBtn.style.display = 'none';
+        return;
+    }
+    
+    const endIndex = Math.min(currentPage * recipesPerPage, currentRecipes.length);
+    const paginatedRecipes = currentRecipes.slice(0, endIndex);
+    
+    paginatedRecipes.forEach(recipe => {
+        const recipeCard = document.createElement('div');
+        recipeCard.className = 'recipe-card';
+        recipeCard.innerHTML = `
+            <div class="recipe-img">
+                <img src="${recipe.image}" alt="${recipe.title}">
+                ${recipe.badge ? `<div class="recipe-badge">${recipe.badge}</div>` : ''}
+            </div>
+            <div class="recipe-content">
+                <h3 class="recipe-title">${recipe.title}</h3>
+                <div class="recipe-meta">
+                    <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                    <span><i class="fas fa-utensils"></i> ${recipe.type}</span>
+                </div>
+                <p class="recipe-desc">${recipe.description}</p>
+                <button class="btn view-recipe" data-id="${recipe.id}">View Recipe</button>
+            </div>
+        `;
+        recipesContainer.appendChild(recipeCard);
+    });
+    
+    // Show/hide load more button
+    if (endIndex >= currentRecipes.length) {
+        loadMoreBtn.style.display = 'none';
+    } else {
+        loadMoreBtn.style.display = 'block';
+    }
+    
+    // Add event listeners to view recipe buttons
+    document.querySelectorAll('.view-recipe').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const recipeId = parseInt(e.target.dataset.id);
+            showRecipeModal(recipeId);
+        });
+    });
+}
+// Load more recipes when button is clicked
+loadMoreBtn.addEventListener('click', () => {
+    currentPage++;
+    displayRecipes(currentRecipes, false);
+});
+
+        // Show recipe modal with details
+        function showRecipeModal(recipeId) {
+            const recipe = recipes.find(r => r.id === recipeId);
+            if (!recipe) return;
+            
+            modalContent.innerHTML = `
+                <div class="modal-header">
+                    <div class="modal-img">
+                        <img src="${recipe.image}" alt="${recipe.title}">
+                    </div>
+                    <div class="modal-info">
+                        <h3 class="modal-title">${recipe.title}</h3>
+                        <div class="modal-meta">
+                            <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                            <span><i class="fas fa-utensils"></i> ${recipe.type}</span>
+                            <span><i class="fas fa-tags"></i> ${recipe.category.join(', ')}</span>
+                        </div>
+                        <p class="modal-desc">${recipe.description}</p>
+                        <div class="modal-tags">
+                            ${recipe.category.map(cat => `<span class="modal-tag">${cat}</span>`).join('')}
+                            ${recipe.badge ? `<span class="modal-tag">${recipe.badge}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="ingredients">
+                        <h4 class="subtitle">Ingredients</h4>
+                        <ul class="ingredients-list">
+                            ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="instructions">
+                        <h4 class="subtitle">Instructions</h4>
+                        <ol class="instructions-list">
+                            ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+                        </ol>
+                    </div>
+                </div>
+            `;
+            
+            // Show modal
+            recipeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            recipeModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                newsletterForm.reset();
+                showNotification('Thank you for subscribing to our newsletter!');
+            }, 500);
+        });
+
+        // Contact form submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                contactForm.reset();
+                showNotification('Your message has been sent successfully!');
+            }, 500);
+        });
+
+        // Show notification
+        function showNotification(message) {
+            notification.innerHTML = `<i class="fas fa-check-circle notification-icon"></i> ${message}`;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        recipeModal.addEventListener('click', (e) => {
+            if (e.target === recipeModal) {
+                recipeModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize the page
+displayRecipes(recipes);
+
+// Animation on scroll
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.about-img, .team-member, .category-card');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Set initial state for animated elements
+document.querySelectorAll('.about-img, .team-member, .category-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.6s ease-out';
+});
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
