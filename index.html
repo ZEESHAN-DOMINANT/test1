@@ -2033,7 +2033,105 @@ nav {
 
     
 
- 
+/* ===== FORCE DESKTOP-LIKE EXPERIENCE IN MOBILE CHROME DESKTOP MODE ===== */
+@media (hover: hover) and (pointer: fine) and (max-width: 1280px) {
+    /* Reset viewport scaling */
+    @viewport {
+        width: device-width;
+        zoom: 1.0;
+    }
+    
+    /* Force desktop-like dimensions */
+    body {
+        min-width: 1024px;
+        zoom: 0.8; /* Slightly scale down to fit */
+        overflow-x: auto;
+    }
+    
+    /* Container adjustments */
+    .container {
+        min-width: 1024px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Enable all hover effects */
+    .recipe-card:hover,
+    .category-card:hover,
+    .team-member:hover,
+    .btn:hover,
+    .filter-btn:hover,
+    .nav-links a:hover,
+    .social-links a:hover {
+        transform: scale(1) translateY(0) !important;
+        opacity: 1 !important;
+        box-shadow: var(--original-shadow) !important;
+    }
+    
+    /* Force desktop layout */
+    .recipes-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .team-members {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    /* Prevent mobile-specific styles */
+    .nav-links {
+        position: static !important;
+        flex-direction: row !important;
+        height: auto !important;
+        width: auto !important;
+        background: transparent !important;
+    }
+    
+    .hamburger {
+        display: none !important;
+    }
+    
+    /* Animation controls */
+    .recipe-card,
+    .category-card,
+    .team-member {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* Modal fixes */
+    .recipe-modal {
+        width: 80% !important;
+        max-width: 900px !important;
+    }
+    
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Additional precision for different mobile desktop modes */
+@media (hover: hover) and (pointer: fine) and (max-width: 1024px) {
+    body {
+        zoom: 0.7;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) and (max-width: 768px) {
+    body {
+        zoom: 0.6;
+    }
+}
 
 
  
