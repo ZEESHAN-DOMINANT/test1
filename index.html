@@ -2033,105 +2033,110 @@ nav {
 
     
 
-/* ===== FORCE DESKTOP-LIKE EXPERIENCE IN MOBILE CHROME DESKTOP MODE ===== */
+
+
+/* ===== FORCE EXACT DESKTOP APPEARANCE IN MOBILE DESKTOP MODE ===== */
 @media (hover: hover) and (pointer: fine) and (max-width: 1280px) {
-    /* Reset viewport scaling */
+    /* Reset all mobile-specific styles */
+    body, header, nav, section, footer, div, article, aside {
+        all: revert;
+    }
+    
+    /* Force desktop viewport */
     @viewport {
-        width: device-width;
+        width: 1200px;
         zoom: 1.0;
     }
     
-    /* Force desktop-like dimensions */
-    body {
-        min-width: 1024px;
-        zoom: 0.8; /* Slightly scale down to fit */
-        overflow-x: auto;
-    }
-    
-    /* Container adjustments */
+    /* Container lock */
     .container {
-        min-width: 1024px;
-        max-width: 1200px;
-        margin: 0 auto;
+        min-width: 1200px !important;
+        width: 1200px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
     }
     
-    /* Enable all hover effects */
-    .recipe-card:hover,
-    .category-card:hover,
-    .team-member:hover,
-    .btn:hover,
-    .filter-btn:hover,
-    .nav-links a:hover,
-    .social-links a:hover {
-        transform: scale(1) translateY(0) !important;
-        opacity: 1 !important;
-        box-shadow: var(--original-shadow) !important;
-    }
-    
-    /* Force desktop layout */
+    /* Layout enforcement */
     .recipes-grid {
         grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2.5rem !important;
     }
     
     .team-members {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+        grid-template-columns: repeat(4, 1fr) !important;
     }
     
     .categories-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+        grid-template-columns: repeat(5, 1fr) !important;
     }
     
     .footer-content {
         grid-template-columns: repeat(4, 1fr) !important;
     }
     
-    /* Prevent mobile-specific styles */
+    /* Full desktop navigation */
     .nav-links {
+        display: flex !important;
         position: static !important;
-        flex-direction: row !important;
-        height: auto !important;
-        width: auto !important;
         background: transparent !important;
+        width: auto !important;
+        height: auto !important;
     }
     
     .hamburger {
         display: none !important;
     }
     
-    /* Animation controls */
-    .recipe-card,
-    .category-card,
-    .team-member {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
+    /* Force original sizes */
+    .recipe-card {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
     }
     
-    /* Modal fixes */
+    /* Modal desktop styling */
     .recipe-modal {
-        width: 80% !important;
+        width: 900px !important;
         max-width: 900px !important;
+    }
+    
+    /* Enable all hover states */
+    *:hover {
+        transform: none !important;
+        opacity: 1 !important;
     }
     
     /* Scrollbar styling */
     ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* Prevent text size adjustments */
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    /* Input field prevention */
+    input, textarea, select {
+        font-size: 16px !important;
     }
 }
 
-/* Additional precision for different mobile desktop modes */
+/* Scale adjustment for different mobile screens */
 @media (hover: hover) and (pointer: fine) and (max-width: 1024px) {
     body {
-        zoom: 0.7;
+        zoom: 0.85;
     }
 }
 
 @media (hover: hover) and (pointer: fine) and (max-width: 768px) {
     body {
-        zoom: 0.6;
+        zoom: 0.7;
     }
 }
+
 
 
  
@@ -4729,6 +4734,17 @@ window.addEventListener('load', animateOnScroll);
         }
     });
 
+
+// Additional JavaScript to enforce desktop behavior
+if (navigator.userAgent.match(/Mobile/) && window.innerWidth <= 1280 && window.innerWidth > 768) {
+    document.write('<meta name="viewport" content="width=1200, initial-scale=1">');
+    document.documentElement.style.overflowX = 'auto';
+    document.body.style.minWidth = '1200px';
+}
+
+
+
+        
 
     </script>
 </body>
